@@ -22,7 +22,7 @@ Browser support policy: features within Baseline Newly Available are used native
 |---|---|
 | `@scope` for every component | Dropped. A component `<style>` is already scoped. Use `:global()` or a parent-owned style for content the component does not own. |
 | Every rule in a `@layer` | Kept, and stricter: scoped component styles are unlayered unless you wrap them, and unlayered rules beat every layer. |
-| `1rem` is 16px | Read the project's root font size first. If `html` is `62.5%`, `1rem` is 10px. |
+| `1rem` is 16px | Not assumed. Read the project's root font size (`100%` or `62.5%`) and convert. |
 | Linter enforces most rules | `stylelint-config-modern` only covers logical properties, `display` notation and `oklch`. `@layer`, nesting, range queries and fluid `clamp()` are review rules. |
 
 ## Rules
@@ -110,8 +110,8 @@ Browser support policy: features within Baseline Newly Available are used native
 
 - **Rule**: Use `clamp()` with container units and a `rem` term in the central value. The ratio grows with the container, for example 1.125 on narrow and 1.25 on wide containers.
 - **Constraint**: Avoid fixed font sizes and central values without `rem`.
-- **Root size**: Convert with the project's root. At `html { font-size: 100% }`, `1rem` is 16px and the original examples apply as written. At `62.5%`, `1.6rem` is 16px, so scale every `rem` value by 0.625 or the type shrinks by 37.5%.
-- **New projects**: Keep the root at `100%`. A `62.5%` root is a legacy convention and zoom still works, but every guide, example and token tool assumes 16px.
+- **Root size**: Do not assume it. Read the project's `html { font-size }` and convert with it. At `100%` (the browser default), `1rem` is 16px and the examples apply as written. At `62.5%`, `1rem` is 10px and `1.6rem` is 16px. Both are valid; keep whichever the project already uses and write the same convention everywhere.
+- **Percent, not px**: Keep the root in `%` or `rem`-friendly units, never `px`, so user font-size settings and zoom still apply.
 
 #### Widow and orphan words (`text-wrap`)
 
