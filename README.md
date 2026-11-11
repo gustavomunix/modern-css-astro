@@ -4,11 +4,23 @@ Agent skill with opinionated rules for modern CSS in Astro projects. Derived fro
 
 ## Install
 
-Copy the folder into a project's `.agents/skills/` directory, or into `~/.agents/skills/` for personal use. It requires the `modern-web-guidance` skill:
+Use the package manager of your project:
 
 ```bash
-pnpm dlx skills add GoogleChrome/modern-web-guidance
+npx skills add gustavomunix/modern-css-astro
+pnpm dlx skills add gustavomunix/modern-css-astro
+bunx skills add gustavomunix/modern-css-astro
 ```
+
+The skill depends on `modern-web-guidance`:
+
+```bash
+npx skills add https://github.com/googlechrome/modern-web-guidance --skill modern-web-guidance
+```
+
+The CLI installs into `.agents/skills/` and records a hash in `skills-lock.json`. Run `skills update` to pull new versions.
+
+To copy by hand, put this folder in a project's `.agents/skills/` or in `~/.agents/skills/`.
 
 ## Contents
 
