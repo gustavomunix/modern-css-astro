@@ -2,7 +2,7 @@
 
 ## Verify CSS changes
 
-1. `pnpm lint:css` on changed files. `stylelint-config-modern` enforces logical properties, `display` notation and `oklch`. It does not check `@layer`, nesting, range queries or `clamp()`.
+1. The project's CSS lint on changed files. Base packages enforce logical properties, `display` notation, `oklch`, nesting notation, media ranges, duplicate properties and unknown properties; `@layer` discipline, nesting cohesion and fluid `clamp()` stay review rules. Unknown values are not covered (`overflow: hidd` passes): add `declaration-property-value-no-unknown` as an extra rule to catch typos. `.astro <style>` needs [`stylelint-config-modern-astro`](https://github.com/gustavomunix/stylelint-config-modern-astro).
 2. `pnpm build`, then read the built CSS in `dist/`. Confirm layer order, that scope attributes are present, and that no unlayered component rule slipped in.
 3. Compare each affected page against a baseline screenshot before and after.
 4. Search for banned patterns in the files you touched: `px` spacing, `@media (max-width`, `min-width`, hex colors, `prefers-reduced-motion: reduce`.
