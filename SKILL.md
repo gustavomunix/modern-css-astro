@@ -23,7 +23,7 @@ Browser support policy: features within Baseline Newly Available are used native
 | `@scope` for every component | Dropped. A component `<style>` is already scoped. Use `:global()` or a parent-owned style for content the component does not own. |
 | Every rule in a `@layer` | Kept, and stricter: scoped component styles are unlayered unless you wrap them, and unlayered rules beat every layer. |
 | `1rem` is 16px | Not assumed. Read the project's root font size (`100%` or `62.5%`) and convert. |
-| Linter enforces most rules | `stylelint-config-modern` covers logical properties, display notation, `oklch` and nesting notation. This fork adds media ranges (`media-feature-range-notation: 'context'`) and `.astro` coverage (`postcss-html`); `@layer` discipline, nesting cohesion and fluid `clamp()` remain review rules. |
+| Linter enforces most rules | `stylelint-config-modern` covers logical properties, display notation, `oklch` and nesting notation. The companion package adds media ranges (`media-feature-range-notation: 'context'`) and `.astro` coverage (`postcss-html`); `@layer` discipline, nesting cohesion and fluid `clamp()` remain review rules. |
 
 ## Rules
 
